@@ -74,7 +74,7 @@
       align-items:center;
       justify-content:space-between;
       gap:1rem;
-      padding: .6rem 0;
+      padding:.6rem 0;
     }
 
     .logo {
@@ -285,7 +285,28 @@
       padding-top:1.2rem;
     }
 
-    /* Адаптив до 980px: сетки в одну колонку, шапка в колонку, меню не скрываем */
+    /* Бургер */
+    .burger {
+      display: none;
+      width: 40px;
+      height: 32px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .burger span {
+      display: block;
+      height: 3px;
+      margin: 5px 0;
+      background: #2b241d;
+      border-radius: 999px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    /* Адаптив до 980px: бургер, меню, сетки */
     @media (max-width: 980px) {
       .hero-grid,
       .teacher,
@@ -297,19 +318,54 @@
       }
 
       .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: wrap;
+        align-items: center;
         gap: 0.75rem;
-        padding: 0.6rem 0;
+      }
+
+      .burger {
+        display: block;
+        margin-left: auto;
       }
 
       .nav {
-        flex-wrap: wrap;
+        width: 100%;
+        margin-top: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 1rem;
         justify-content: flex-start;
+        flex-wrap: wrap;
+        row-gap: 0.35rem;
       }
 
       .nav a {
-        padding: 0.4rem 0.8rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.9);
+      }
+
+      .header-cta {
+        margin-left: 0;
+      }
+
+      /* по умолчанию меню скрыто */
+      .nav {
+        display: none;
+      }
+
+      /* когда фокус внутри шапки (нажали на бургер) — показываем меню */
+      .header:focus-within .nav {
+        display: flex;
+      }
+
+      .header:focus-within .burger span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .header:focus-within .burger span:nth-child(2) {
+        opacity: 0;
+      }
+      .header:focus-within .burger span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
       }
     }
 
@@ -331,13 +387,21 @@
         <span class="logo-mark">⌁</span>
         <span>Цифровой старт</span>
       </a>
+
+      <button class="burger" type="button" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <nav class="nav" aria-label="Главная навигация">
         <a href="#about">О курсе</a>
         <a href="#program">Программа</a>
         <a href="#teacher">Преподаватель</a>
         <a href="#price">Запись</a>
       </nav>
-      <a class="btn btn-primary" href="https://web.max.ru/0" target="_blank" rel="noopener noreferrer">Записаться</a>
+
+      <a class="btn btn-primary header-cta" href="https://web.max.ru/0" target="_blank" rel="noopener noreferrer">Записаться</a>
     </div>
   </header>
 
@@ -373,9 +437,8 @@
       </div>
     </section>
 
-    <!-- Здесь дальше можешь добавить остальные секции (О курсе, Для кого, Программа,
-         Преподаватель, Цена, FAQ, призыв, футер) — просто скопируй их из своего
-         текущего файла, если они пропали после замены. Структура уже адаптивна. -->
+    <!-- СЮДА можно вернуть все остальные секции из старого файла: О курсе, Для кого, Программа,
+         Преподаватель, Цена, FAQ, призыв, футер. Они уже были окей, адаптив ломался в шапке. -->
   </main>
 </body>
 </html>
