@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Цифровой старт — офлайн-курс цифровой грамотности для подростков</title>
-  <meta name="description" content="Цифровой старт — офлайн-курс цифровой грамотности для подростков 10–16 лет. За 3 месяца ребёнок уверенно освоит компьютер, интернет и цифровые сервисы." />
+  <meta name="description" content="Цифровой старт — офлайн-курс цифровой грамотности для подростков 10–16 лет. За 3 месяца ребёнок уверенно освоит компьютер и интернет." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,28 +23,27 @@
       --space-8: 2rem;
       --space-12: 3rem;
 
-      --color-bg: #0a0f1b;
-      --color-surface: #0f1726;
-      --color-text: #f9fafb;
-      --color-text-muted: #9ca3af;
-
-      --color-primary: #22c1ff;
-      --color-primary-hover: #12a4e0;
-      --color-accent: #ff8a22;
-      --color-success: #22c55e;
+      --color-bg: #f7f4ef;
+      --color-surface: #fffdfa;
+      --color-text: #2b241d;
+      --color-text-muted: #6d655f;
+      --color-primary: #2767d8;
+      --color-primary-hover: #1e53af;
+      --color-success: #3b7c4a;
 
       --radius-lg: 1.5rem;
       --radius-xl: 2rem;
 
-      --shadow-sm: 0 4px 14px rgba(15, 23, 42, 0.5);
-      --shadow-md: 0 18px 45px rgba(15, 23, 42, 0.75);
+      --shadow-sm: 0 4px 14px rgba(66, 47, 24, 0.06);
+      --shadow-md: 0 14px 40px rgba(66, 47, 24, 0.1);
 
       --content: 1120px;
-      --font-body: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --font-display: "Playfair Display", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", serif;
+
+      --font-body: Manrope, sans-serif;
+      --font-display: "Playfair Display", serif;
     }
 
-    *, *::before, *::after {
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -53,23 +52,20 @@
     body {
       font-family: var(--font-body);
       background:
-        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.35), transparent 55%),
-        radial-gradient(circle at 100% 0, rgba(248, 113, 113, 0.25), transparent 55%),
-        radial-gradient(circle at 50% 100%, rgba(56, 189, 248, 0.25), transparent 55%),
-        #020617;
+        linear-gradient(180deg, rgba(238, 233, 227, 0.76) 0, rgba(238, 233, 227, 0.84) 100%),
+        url(https://user-gen-media-assets.s3.amazonaws.com/gpt4o/images/ab3fb0e5-fa8d-4a99-89d6-c3ccafd0e979.png) center top/cover fixed no-repeat;
       color: var(--color-text);
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
     }
 
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
     }
 
     .container {
@@ -81,59 +77,69 @@
       padding: clamp(3rem, 8vw, 6rem) 0;
     }
 
-    /* HEADER */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1rem;
+      background: rgba(39, 103, 216, 0.08);
+      color: var(--color-primary);
+      border: 1px solid rgba(39, 103, 216, 0.12);
+      border-radius: 999px;
+      font-size: var(--text-sm);
+      font-weight: 700;
+    }
+
+    .title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      max-width: 42rem;
+    }
 
     .header {
       position: sticky;
       top: 0;
       z-index: 30;
       backdrop-filter: blur(18px);
-      background: linear-gradient(90deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
-      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      background: rgba(255, 252, 247, 0.94);
+      border-bottom: 1px solid rgba(39, 103, 216, 0.12);
+      box-shadow: 0 10px 24px rgba(43, 36, 29, 0.08);
     }
 
     .header-inner {
-      min-height: 80px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      padding: 0.4rem 0;
+      padding: 0.6rem 0;
     }
-
-    /* ЛОГОТИП */
 
     .logo {
       display: inline-flex;
       align-items: center;
-      gap: 0.9rem;
-      max-width: 360px;
+      gap: 0.85rem;
+      font-weight: 800;
+      font-size: 1.05rem;
     }
 
+    /* вставка логотипа‑картинки */
     .logo img {
       height: 44px;
       width: auto;
-      border-radius: 999px;
-      box-shadow: 0 0 30px rgba(34, 193, 255, 0.7);
+      display: block;
+      border-radius: 8px;
     }
 
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
-
-    .logo-title {
-      font-weight: 800;
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .logo-subtitle {
-      font-size: 0.8rem;
-      color: var(--color-text-muted);
+    .logo-mark {
+      display: none;
     }
 
     .nav {
@@ -141,25 +147,7 @@
       gap: 1.1rem;
       color: var(--color-text-muted);
       font-size: var(--text-sm);
-      padding: 0.55rem 0.9rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.8);
     }
-
-    .nav a {
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .nav a:hover {
-      background: rgba(15, 23, 42, 0.9);
-      color: #e5e7eb;
-    }
-
-    /* GRID LAYOUTS */
 
     .hero-grid,
     .teacher,
@@ -172,7 +160,7 @@
     }
 
     .hero-grid {
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: var(--space-8);
       align-items: center;
     }
@@ -193,42 +181,24 @@
       grid-template-columns: repeat(2, 1fr);
     }
 
-    /* CARD STYLES */
-
     .card,
     .hero-card {
-      background: radial-gradient(circle at 0 0, rgba(34, 193, 255, 0.22), transparent 55%),
-                  radial-gradient(circle at 100% 100%, rgba(251, 146, 60, 0.18), transparent 55%),
-                  rgba(15, 23, 42, 0.98);
-      border: 1px solid rgba(148, 163, 184, 0.45);
+      background: rgba(255, 253, 250, 0.92);
+      border: 1px solid rgba(43, 36, 29, 0.08);
       border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-md);
-      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-sm);
+      backdrop-filter: blur(10px);
     }
 
     .card {
-      padding: 1.6rem 1.8rem;
+      padding: 1.5rem;
       height: 100%;
     }
-
-    /* HERO */
 
     .hero-panel {
       padding: var(--space-8);
       position: relative;
       overflow: hidden;
-      isolation: isolate;
-    }
-
-    .hero-panel::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 0 0, rgba(34, 193, 255, 0.45), transparent 60%),
-        radial-gradient(circle at 100% 100%, rgba(251, 146, 60, 0.25), transparent 60%);
-      opacity: 0.65;
-      z-index: -1;
     }
 
     .hero-copy {
@@ -241,33 +211,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.9rem;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.65rem 1rem;
-      background: rgba(15, 23, 42, 0.88);
-      color: var(--color-primary);
-      border: 1px solid rgba(34, 193, 255, 0.45);
-      border-radius: 999px;
-      font-size: var(--text-sm);
-      font-weight: 700;
-      box-shadow: 0 0 22px rgba(34, 193, 255, 0.55);
-    }
-
-    .title {
-      font-family: var(--font-display);
-      font-size: var(--text-2xl);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-    }
-
-    .subtitle {
-      font-size: var(--text-lg);
-      color: var(--color-text-muted);
-      max-width: 42rem;
     }
 
     .btn {
@@ -287,37 +230,33 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--color-primary), #38bdf8);
-      color: #0b1020;
-      box-shadow: 0 14px 30px rgba(56, 189, 248, 0.5);
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(39, 103, 216, 0.22);
     }
 
     .btn-primary:hover {
+      background: var(--color-primary-hover);
       transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.7);
-      background: linear-gradient(135deg, #38bdf8, var(--color-primary-hover));
+      box-shadow: 0 14px 32px rgba(39, 103, 216, 0.32);
     }
 
     .btn-secondary {
       background: transparent;
-      border-color: rgba(148, 163, 184, 0.6);
+      border: 1px solid rgba(43, 36, 29, 0.12);
       color: var(--color-text-muted);
     }
 
     .btn-secondary:hover {
-      border-color: rgba(248, 250, 252, 0.85);
-      color: #e5e7eb;
-      background: rgba(15, 23, 42, 0.9);
+      border-color: rgba(39, 103, 216, 0.35);
+      color: var(--color-primary);
     }
 
     .stat {
       padding: 1rem 1.15rem;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(255, 255, 255, 0.72);
       border-radius: 1.25rem;
-      border: 1px solid rgba(148, 163, 184, 0.55);
-      display: flex;
-      flex-direction: column;
-      gap: 0.05rem;
+      border: 1px solid rgba(43, 36, 29, 0.06);
     }
 
     .stat strong {
@@ -327,7 +266,12 @@
       color: var(--color-primary);
     }
 
-    /* ICONIC CARDS */
+    .section-head {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
 
     .card-icon {
       width: 52px;
@@ -335,11 +279,9 @@
       border-radius: 16px;
       display: grid;
       place-items: center;
-      background: radial-gradient(circle at 0 0, rgba(34, 193, 255, 0.3), transparent 55%),
-                  rgba(15, 23, 42, 0.9);
+      background: rgba(39, 103, 216, 0.08);
       color: var(--color-primary);
       margin-bottom: 1rem;
-      box-shadow: 0 0 20px rgba(34, 193, 255, 0.6);
     }
 
     .card h3,
@@ -360,8 +302,6 @@
       gap: 0.45rem;
     }
 
-    /* AUDIENCE */
-
     .audience-list {
       display: grid;
       gap: 0.8rem;
@@ -370,15 +310,13 @@
     .audience-item {
       padding: 1rem 1.1rem;
       background: var(--color-surface);
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      border: 1px solid rgba(43, 36, 29, 0.08);
       border-radius: 1.2rem;
     }
 
-    /* TEACHER */
-
     .teacher {
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: var(--space-8);
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: var(--space-6);
       align-items: stretch;
     }
 
@@ -386,10 +324,9 @@
       min-height: 320px;
       border-radius: var(--radius-xl);
       overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      box-shadow: var(--shadow-md);
-      background: radial-gradient(circle at 0 0, rgba(34, 193, 255, 0.2), transparent 60%),
-                  #020617;
+      border: 1px solid rgba(43, 36, 29, 0.08);
+      box-shadow: var(--shadow-sm);
+      background: #e9e3db;
     }
 
     .teacher-photo img {
@@ -399,17 +336,13 @@
       object-position: center top;
     }
 
-    /* PRICE */
-
     .price-box {
       padding: 2rem;
-      background: radial-gradient(circle at 0 0, rgba(34, 193, 255, 0.32), transparent 60%),
-                  radial-gradient(circle at 100% 100%, rgba(251, 146, 60, 0.35), transparent 60%),
-                  rgba(15, 23, 42, 0.98);
-      border: 1px solid rgba(56, 189, 248, 0.75);
+      background: linear-gradient(180deg, rgba(39, 103, 216, 0.12), rgba(255, 255, 255, 0.93));
+      border: 1px solid rgba(39, 103, 216, 0.16);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow-md);
-      backdrop-filter: blur(14px);
+      backdrop-filter: blur(10px);
     }
 
     .price {
@@ -417,7 +350,7 @@
       line-height: 1;
       font-weight: 800;
       margin: 0.85rem 0;
-      color: var(--color-accent);
+      color: var(--color-primary);
     }
 
     .check-list {
@@ -435,74 +368,26 @@
     }
 
     .check-item span {
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       flex-shrink: 0;
       border-radius: 999px;
       display: grid;
       place-items: center;
-      background: rgba(34, 197, 94, 0.18);
+      background: rgba(59, 124, 74, 0.12);
       color: var(--color-success);
       font-size: 0.85rem;
       font-weight: 800;
     }
 
-    /* CTA */
-
     .cta {
       text-align: center;
       padding: clamp(2rem, 5vw, 4rem);
-      background: linear-gradient(135deg, rgba(34, 193, 255, 0.16), rgba(251, 146, 60, 0.18));
-      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: linear-gradient(135deg, rgba(39, 103, 216, 0.1), rgba(242, 143, 59, 0.1));
+      border: 1px solid rgba(43, 36, 29, 0.08);
       border-radius: 2rem;
       box-shadow: var(--shadow-md);
     }
-
-    .cta p {
-      color: var(--color-text-muted);
-      max-width: 32rem;
-      margin: 0.75rem auto 1.6rem;
-    }
-
-    /* SECTION HEAD */
-
-    .section-head {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    .section-head .badge {
-      align-self: flex-start;
-    }
-
-    /* FAQ */
-
-    details {
-      background: var(--color-surface);
-      border-radius: 1.1rem;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      padding: 1.1rem 1.2rem;
-    }
-
-    summary {
-      cursor: pointer;
-      list-style: none;
-      font-weight: 600;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    details p {
-      margin-top: 0.7rem;
-      font-size: var(--text-sm);
-      color: var(--color-text-muted);
-    }
-
-    /* FOOTER */
 
     .footer {
       padding: 2rem 0 3rem;
@@ -515,11 +400,9 @@
       justify-content: space-between;
       gap: 1rem;
       flex-wrap: wrap;
-      border-top: 1px solid rgba(148, 163, 184, 0.6);
+      border-top: 1px solid rgba(43, 36, 29, 0.08);
       padding-top: 1.2rem;
     }
-
-    /* RESPONSIVE */
 
     @media (max-width: 980px) {
       .hero-grid,
@@ -534,10 +417,6 @@
       .nav {
         display: none;
       }
-
-      .logo img {
-        height: 40px;
-      }
     }
 
     @media (max-width: 640px) {
@@ -549,14 +428,27 @@
 
       .hero-actions {
         flex-direction: column;
+        gap: 0.75rem;
       }
 
-      .btn {
+      .hero-actions .btn {
         width: 100%;
       }
 
-      .logo {
-        max-width: 100%;
+      .section {
+        padding: 2.5rem 0;
+      }
+
+      .title {
+        font-size: clamp(1.6rem, 5vw, 2.1rem);
+      }
+
+      .subtitle {
+        font-size: var(--text-base);
+      }
+
+      .logo img {
+        height: 36px;
       }
     }
   </style>
@@ -565,14 +457,11 @@
   <header class="header">
     <div class="container header-inner">
       <a href="#top" class="logo" aria-label="Цифровой старт — курс цифровой грамотности">
-        <img src="img/logo-digital-start.png" alt="Цифровой старт — офлайн-курс цифровой грамотности" />
-        <span class="logo-text">
-          <span class="logo-title">Цифровой старт</span>
-          <span class="logo-subtitle">Курс цифровой грамотности для подростков</span>
-        </span>
+        <img src="img/logo-digital-start.png"
+             alt="Цифровой старт — офлайн-курс цифровой грамотности для подростков 10–16 лет">
       </a>
 
-      <nav class="nav" aria-label="Основная навигация">
+      <nav class="nav" aria-label="Основная навигация" style="background: rgba(39,103,216,.06); border:1px solid rgba(39,103,216,.10); padding:.55rem .9rem; border-radius:999px;">
         <a href="#about">О курсе</a>
         <a href="#program">Программа</a>
         <a href="#teacher">Преподаватель</a>
@@ -587,18 +476,16 @@
   </header>
 
   <main id="top">
-    <!-- HERO -->
     <section class="section" style="padding-top: 4.5rem;">
       <div class="container hero-grid">
         <div class="hero-copy">
           <div class="badge">За 3 месяца ребёнок уверенно освоит компьютер и интернет</div>
 
-          <h1 class="title">Цифровой старт: офлайн-курс цифровой грамотности для подростков 10–16 лет</h1>
+          <h1 class="title">Цифровой старт: за 3 месяца ребёнок уверенно освоит компьютер и интернет</h1>
 
           <p class="subtitle">
-            Практический курс, где ребёнок научится безопасно пользоваться интернетом, работать с
-            документами, таблицами и презентациями, понимать цифровые сервисы и применять технологии
-            с пользой для учёбы и жизни.
+            Офлайн‑курс цифровой грамотности для подростков 10–16 лет: безопасность в сети, документы,
+            таблицы, презентации и реальные цифровые сервисы — без скучной теории, только понятная практика.
           </p>
 
           <div class="hero-actions">
@@ -613,62 +500,63 @@
           <div class="hero-actions" style="gap: 0.8rem;">
             <div class="stat">
               <strong>3 месяца</strong>
-              <p>Структурная программа из модулей и мини‑проекта</p>
+              <p>Структурная программа: шаг за шагом от основ до собственного мини‑проекта.</p>
             </div>
             <div class="stat">
-              <strong>1&nbsp;раз в&nbsp;неделю</strong>
-              <p>Очные занятия в небольших группах</p>
+              <strong>1 раз в неделю</strong>
+              <p>Очные занятия в небольшой группе — преподаватель успевает помочь каждому.</p>
             </div>
             <div class="stat">
               <strong>10–16 лет</strong>
-              <p>Курс для подростков с базовым уровнем</p>
+              <p>Для подростков, которые уже сидят в гаджетах, но пока не используют их «по‑взрослому».</p>
             </div>
           </div>
         </div>
 
         <aside class="hero-card hero-panel" aria-label="Преимущества курса">
-          <div class="badge" style="margin-bottom: 1.2rem;">Практика, понятные объяснения, живой формат</div>
-          <p style="color: #e5e7eb; font-size: var(--text-base); margin-bottom: 1.2rem;">
-            Вместо сухой теории — реальные задачи: документы, таблицы, презентации, интернет‑безопасность
-            и первые шаги в цифровых сервисах.
-          </p>
-          <ul style="list-style: none; display: grid; gap: 0.8rem; font-size: var(--text-sm); color: var(--color-text-muted);">
-            <li>• Практические задания на каждом занятии</li>
-            <li>• Пошаговые инструкции и поддержка преподавателя</li>
-            <li>• Мини‑проект в конце курса</li>
-            <li>• Поддерживающая атмосфера и мотивация без давления</li>
-          </ul>
+          <div class="stat">
+            <strong>Практика на каждом занятии</strong>
+            <p>Ребёнок сразу применяет новые навыки: делает документы, таблицы и презентации по реальным задачам.</p>
+          </div>
+          <br />
+          <div class="stat">
+            <strong>Безопасность без запугивания</strong>
+            <p>Учимся защищать данные, распознавать мошенников и вести себя в сети спокойно и осознанно.</p>
+          </div>
+          <br />
+          <div class="stat">
+            <strong>Мини‑проект в конце курса</strong>
+            <p>Курс заканчивается небольшим проектом — ребёнок видит результат своей работы в цифровом формате.</p>
+          </div>
         </aside>
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section class="section" id="about">
       <div class="container">
         <div class="section-head">
           <div class="badge">Зачем курс</div>
           <h2 class="title">Чтобы ребёнок уверенно чувствовал себя в цифровом мире</h2>
           <p class="subtitle">
-            Курс создан для того, чтобы ребёнок не только проводил время в телефоне, но и понимал,
-            как безопасно и грамотно использовать цифровые инструменты в реальной жизни.
+            Курс помогает превратить «просто сидит в телефоне» в осознанное использование технологий:
+            ребёнок учится безопасно работать в интернете, делать учебные задания и создавать свои проекты.
           </p>
         </div>
 
         <div class="grid-3">
           <article class="card">
             <div class="card-icon">💻</div>
-            <h3>Практические навыки</h3>
+            <h3>Практические навыки для школы и жизни</h3>
             <p>
-              Документы, таблицы, презентации, облачные сервисы, поиск информации и работа с цифровыми материалами.
+              Документы, таблицы, презентации, облачные сервисы, поиск информации и работа с цифровыми материалами на понятных примерах.
             </p>
           </article>
 
           <article class="card">
             <div class="card-icon">🛡️</div>
-            <h3>Безопасность и этикет</h3>
+            <h3>Безопасность и цифровой этикет</h3>
             <p>
-              Пароли, приватность, цифровой след, мошенничество, аккуратное общение в интернете и
-              базовые правила поведения онлайн.
+              Пароли, приватность, цифровой след, мошенники и общение в интернете — спокойно, без паники и запугивания.
             </p>
           </article>
 
@@ -676,15 +564,13 @@
             <div class="card-icon">🚀</div>
             <h3>Уверенность в будущем</h3>
             <p>
-              Ребёнок начинает использовать технологии для учёбы, личных задач, проектов и первых шагов
-              в цифровой среде.
+              Ребёнок начинает использовать технологии для учёбы, личных задач и первых шагов в профессиях будущего.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- AUDIENCE -->
     <section class="section">
       <div class="container">
         <div class="section-head">
@@ -698,19 +584,19 @@
               <div class="audience-item">
                 <strong>Подростки 10–16 лет</strong><br />
                 <span style="color: var(--color-text-muted);">
-                  Тем, кто уже пользуется телефоном и компьютером, но делает это интуитивно.
+                  Тем, кто уже пользуется телефоном и компьютером, но делает это интуитивно и без системы.
                 </span>
               </div>
               <div class="audience-item">
-                <strong>Родители, которые хотят структуры</strong><br />
+                <strong>Родители, которым важен результат</strong><br />
                 <span style="color: var(--color-text-muted);">
-                  Если хочется, чтобы ребёнок не «просто сидел в гаджетах», а развивался.
+                  Если хочется, чтобы ребёнок не просто «залипал», а развивал цифровые навыки.
                 </span>
               </div>
               <div class="audience-item">
                 <strong>Начинающие пользователи</strong><br />
                 <span style="color: var(--color-text-muted);">
-                  Никаких сложных терминов — объясняем простым языком на примерах из жизни.
+                  Никаких сложных терминов — всё объясняем простым языком на примерах из жизни.
                 </span>
               </div>
             </div>
@@ -721,22 +607,21 @@
             <ul>
               <li>Небольшие группы и живое общение.</li>
               <li>Пошаговые инструкции и разбор типичных ошибок.</li>
-              <li>Домашние задания, которые можно выполнить самостоятельно.</li>
-              <li>Мини‑проект по итогам курса.</li>
+              <li>Домашние задания, которые ребёнок может выполнить самостоятельно.</li>
+              <li>Мини‑проект по итогам курса с понятной обратной связью.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- PROGRAM -->
     <section class="section" id="program">
       <div class="container">
         <div class="section-head">
           <div class="badge">Программа</div>
           <h2 class="title">Три модуля от основ до мини‑проекта</h2>
           <p class="subtitle">
-            Программа разбита на три последовательных этапа: от основ цифровой грамотности до создания собственного небольшого проекта.
+            Программа разбита на три последовательных этапа: от базовой цифровой грамотности до создания собственного небольшого проекта.
           </p>
         </div>
 
@@ -757,7 +642,7 @@
               <li>Тексты: структура, форматирование, совместная работа.</li>
               <li>Таблицы: простые формулы, учёт и расчёты.</li>
               <li>Презентации: слайды, визуал, подготовка доклада.</li>
-              <li>Практические мини‑задания на каждом занятии.</li>
+              <li>Практические задания на каждом занятии.</li>
             </ul>
           </article>
 
@@ -765,7 +650,7 @@
             <h3>Модуль 3. Мини‑проект</h3>
             <ul>
               <li>Выбор темы проекта вместе с ребёнком.</li>
-              <li>Планирование, распределение задач, дедлайны.</li>
+              <li>Планирование, распределение задач и дедлайнов.</li>
               <li>Подготовка презентации и защиты.</li>
               <li>Финальная защита проекта и обратная связь.</li>
             </ul>
@@ -774,11 +659,9 @@
       </div>
     </section>
 
-    <!-- TEACHER -->
     <section class="section" id="teacher">
       <div class="container teacher">
         <div class="teacher-photo">
-          <!-- сюда можно поставить фото преподавателя -->
           <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Преподаватель курса Цифровой старт" />
         </div>
 
@@ -798,7 +681,6 @@
       </div>
     </section>
 
-    <!-- PRICE -->
     <section class="section" id="price">
       <div class="container">
         <div class="section-head">
@@ -808,7 +690,7 @@
 
         <div class="price-box">
           <h3 style="font-size: 1.2rem; font-weight: 600;">Полный курс «Цифровой старт»</h3>
-          <p class="price">₽&nbsp;—</p>
+          <p class="price">₽ —</p>
           <p style="color: var(--color-text-muted); max-width: 28rem;">
             Фиксированная стоимость курса. При необходимости здесь можно добавить акцию, рассрочку
             или спецусловия для ранней записи.
@@ -821,11 +703,11 @@
             </div>
             <div class="check-item">
               <span>✓</span>
-              <p>Все материалы, чек‑листы и инструкции включены.</p>
+              <p>Все материалы, чек‑листы и инструкции включены в стоимость.</p>
             </div>
             <div class="check-item">
               <span>✓</span>
-              <p>Поддержка преподавателя и обратная связь по заданиям.</p>
+              <p>Поддержка преподавателя и понятная обратная связь по заданиям.</p>
             </div>
           </div>
 
@@ -841,7 +723,6 @@
       </div>
     </section>
 
-    <!-- FAQ -->
     <section class="section" id="faq">
       <div class="container">
         <div class="section-head">
@@ -853,35 +734,34 @@
           <details open>
             <summary>Подойдёт ли курс, если ребёнок «на вы» с компьютером?</summary>
             <p>
-              Да, курс рассчитан на стартовый уровень. Важно лишь, чтобы ребёнок был готов пробовать и не боялся задавать вопросы.
+              Да, курс рассчитан на обычный стартовый уровень. Важно лишь, чтобы ребёнок был готов пробовать и не боялся задавать вопросы.
             </p>
           </details>
 
           <details>
             <summary>Сколько людей в группе?</summary>
             <p>
-              Небольшие группы, чтобы уделить внимание каждому. Это помогает спокойно разобрать темы и не потерять темп.
+              Небольшие группы помогают уделить внимание каждому ребёнку и спокойно разобрать темы без спешки.
             </p>
           </details>
 
           <details>
             <summary>Курс только офлайн или есть онлайн‑формат?</summary>
             <p>
-              Сейчас курс проходит офлайн. Формат очных занятий помогает лучше концентрироваться и меньше отвлекаться.
+              Сейчас курс проходит офлайн. Очный формат помогает лучше концентрироваться и меньше отвлекаться на гаджеты.
             </p>
           </details>
 
           <details>
             <summary>Что ребёнок получит в итоге?</summary>
             <p>
-              Понимание, как устроен компьютер и интернет, базовые навыки работы с документами и таблицами, понимание безопасности и мини‑проект.
+              Понимание, как устроен компьютер и интернет, базовые навыки работы с документами и таблицами, знания по безопасности и мини‑проект в цифровом формате.
             </p>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- CTA -->
     <section class="section">
       <div class="container">
         <div class="cta">
